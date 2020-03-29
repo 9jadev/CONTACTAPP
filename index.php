@@ -8,11 +8,12 @@ if(isset($_POST["screen_shot"]))
 {
  $amount = $_POST["amount"];
  $url = "https://btcscreenshot.herokuapp.com/btc.php?amount=".$amount;
- $screen_shot_json_data = file_get_contents("https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=$url&screenshot=true");
- $screen_shot_result = json_decode($screen_shot_json_data, true);
- $screen_shot = $screen_shot_result['screenshot']['data'];
- $screen_shot = str_replace(array('_','-'), array('/', '+'), $screen_shot);
- $screen_shot_image = "<img src=\"data:image/jpeg;base64,".$screen_shot."\" class='img-responsive img-thumbnail' download/>";
+ // $screen_shot_json_data = file_get_contents("https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=$url&screenshot=true");
+ // $screen_shot_result = json_decode($screen_shot_json_data, true);
+ // $screen_shot = $screen_shot_result['screenshot']['data'];
+ // $screen_shot = str_replace(array('_','-'), array('/', '+'), $screen_shot);
+ // $screen_shot_image = "<img src=\"data:image/jpeg;base64,".$screen_shot."\" class='img-responsive img-thumbnail' />";
+ header("Location: ".$url);
 }
 
 ?>
