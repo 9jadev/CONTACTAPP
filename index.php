@@ -12,7 +12,7 @@ if(isset($_POST["screen_shot"]))
  $screen_shot_result = json_decode($screen_shot_json_data, true);
  $screen_shot = $screen_shot_result['screenshot']['data'];
  $screen_shot = str_replace(array('_','-'), array('/', '+'), $screen_shot);
- $screen_shot_image = "<img src=\"data:image/jpeg;base64,".$screen_shot."\" class='img-responsive img-thumbnail'/>";
+ $screen_shot_image = "<img src=\"data:image/jpeg;base64,".$screen_shot."\" class='img-responsive img-thumbnail' download/>";
 }
 
 ?>
@@ -37,10 +37,6 @@ if(isset($_POST["screen_shot"]))
    <br />
    <h2 align="center">How to capture website screen shot from url in php</h2><br />
    <form method="post">
-    <div class="form-group">
-     <label>Enter URL</label>
-     <input type="url" name="url" class="form-control input-lg" required autocomplete="off" />
-    </div>
     <div class="fprm-group">
         <label> Enter Amount </label>
         <input type="number" name="amount" class="form-control input-lg" required placeholder="Enter amount in usd"  />
