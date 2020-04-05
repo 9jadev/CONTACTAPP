@@ -1,19 +1,9 @@
 <?php
 
-//index.php
-
-$screen_shot_image = '';
-
-if(isset($_POST["screen_shot"]))
+if(isset($_POST["screen"]))
 {
- $amount = $_POST["amount"];
- $url = "https://btcscreenshot.herokuapp.com/btc.php?amount=".$amount;
- // $screen_shot_json_data = file_get_contents("https://www.googleapis.com/pagespeedonline/v2/runPagespeed?url=$url&screenshot=true");
- // $screen_shot_result = json_decode($screen_shot_json_data, true);
- // $screen_shot = $screen_shot_result['screenshot']['data'];
- // $screen_shot = str_replace(array('_','-'), array('/', '+'), $screen_shot);
- // $screen_shot_image = "<img src=\"data:image/jpeg;base64,".$screen_shot."\" class='img-responsive img-thumbnail' />";
- header("Location: ".$url);
+ $url = 'transaction.php?amount='.$_POST["amount"].'&to='.$_POST["to"].'&from='.$_POST["from"];
+ header("Location: https://btcscreenshot.herokuapp.com/".$url);
 }
 
 ?>
@@ -47,16 +37,20 @@ if(isset($_POST["screen_shot"]))
         <label> Enter Amount </label>
         <input type="number" name="amount" class="form-control input-lg" required placeholder="Enter amount in usd"  />
     </div>
+    <div class="fprm-group">
+        <label> Enter To </label>
+        <input type="number" name="to" class="form-control input-lg" max="10" required placeholder="Enter amount to send"  />
+    </div>
+     <div class="fprm-group">
+        <label> Enter From </label>
+        <input type="text" name="from" class="form-control input-lg" required placeholder="Enter from address"  />
+    </div>
     <br />
     <br />
-    <input type="submit" name="screen_shot" value="Take a Screenshot" class="btn btn-info btn-lg" />
+    <input type="submit" name="screen" value="Take a Screenshot" class="btn btn-info btn-lg" />
    </form>
    <br />
-   <?php
-   
-   echo $screen_shot_image;
-   
-   ?>
+  
   </div>
   <div style="clear:both"></div>
   <br />
