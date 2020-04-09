@@ -26,7 +26,7 @@
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-6" style="padding-top: 20px; font-size: 25px;font-weight: bold; color: #fad7d7;">
 				<p>SENT</p>
